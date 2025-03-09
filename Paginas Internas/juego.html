@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<script>
+	let numeroMax = 100;
+	let numeroMin = 1;
+    let numero_random = Math.floor(Math.random() * numeroMax) + 1;
+    console.log("El número a adivinar es: " + numero_random);
+	
+    function check_numero() {
+        let valor = parseInt(document.getElementById("juego_numero").value);
+        let resultado = document.getElementById("resultado");
+
+        if (isNaN(valor)) {
+            resultado.textContent = "Por favor, introduce un número válido.";
+            return;
+        }
+
+        if (valor < numeroMin) {
+            resultado.textContent = "El número debe ser mayor o igual a "+numeroMin;
+            return;
+        } else if (valor > numeroMax) {
+            resultado.textContent = "El número debe ser "+numeroMax+" o menor.";
+            return;
+        }
+
+        if (valor < numero_random) {
+            resultado.textContent = "El número a adivinar es mayor que " + valor + ".";
+        } else if (valor > numero_random) {
+            resultado.textContent = "El número a adivinar es menor que " + valor + ".";
+        } else {
+            resultado.textContent = "¡Lo has adivinado!";
+        }
+    }
+</script>
+<body>
+    <header>
+        <h1>Juego</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./portada.html">Portada</a></li>
+                <li><a href="./cv.html">CV</a></li>
+                <li><a href="./aficiones.html">Aficiones</a></li>
+                <li><a href="./juego.html">Juego</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Juego hecho en clase</h2>
+        <form>
+            <h3>Adivina el Número</h3>
+            <p>Introduce un número entre el 1 y el 100 para adivinar el número</p>
+            <p>Número: <input type="text" id="juego_numero" name="numero"/></p>
+            <p><output id="resultado">Introduce el número en el campo de texto</output></p>
+            <p><input type="button" value="¡Adivina!" onClick="check_numero();"/></p>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Alejandro Di Miscia Barco</p>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./portada.html">Portada</a></li>
+                <li><a href="./cv.html">CV</a></li>
+                <li><a href="./aficiones.html">Aficiones</a></li>
+                <li><a href="./juego.html">Juego</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </footer>
+	<script>
+		document.getElementById("info").innerHTML = info;	
+	</script>
+</body>
+</html>
